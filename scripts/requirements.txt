@@ -1,0 +1,8 @@
+datasets==4.4.1
+numpy==2.3.5
+onnxruntime==1.19.2
+optimum==2.0.0
+optimum_onnx==0.0.3
+soundfile==0.13.1
+torch==2.8.0
+transformers==4.55.4
