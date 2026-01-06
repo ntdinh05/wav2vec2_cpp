@@ -4,11 +4,24 @@
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/libs/onnxruntime/include"
+                "/opt/homebrew/opt/qt/include/**",
+                "/opt/homebrew/opt/qt/lib/**",
+                "/usr/local/opt/qt/include/**",
+                "/usr/local/opt/qt/lib/**",
+                "/opt/homebrew/Cellar/qtbase/6.9.3_1/lib/QtCore.framework/Versions/A/Headers",
+                "/opt/homebrew/Cellar/qtbase/6.9.3_1/lib/QtGui.framework/Versions/A/Headers",
+                "/opt/homebrew/Cellar/qtdeclarative/6.9.3/lib/QtQml.framework/Versions/A/Headers",
+                "/opt/homebrew/Cellar/qtdeclarative/6.9.3/include"
             ],
             "defines": [],
+            "macFrameworkPath": [
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks",
+                "/opt/homebrew/opt/qt/lib",
+                "/usr/local/opt/qt/lib"
+            ],
+            "compilerPath": "/usr/bin/clang",
             "cStandard": "c17",
-            "cppStandard": "c++14",
+            "cppStandard": "c++17",
             "intelliSenseMode": "macos-clang-arm64"
         }
     ],

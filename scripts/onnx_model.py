@@ -4,8 +4,8 @@ import numpy as np
 from transformers import Wav2Vec2Processor
 
 # 1. Setup paths
-model_path = "onnx_output/model.onnx" 
-audio_path = "audio_file.wav"
+model_path = "../onnx_output/model.onnx" 
+audio_path = "../audio_file_test1.wav"
 processor = Wav2Vec2Processor.from_pretrained("vitouphy/wav2vec2-xls-r-300m-timit-phoneme")
 
 # 2. Process Audio (return_tensors="np" is key for ONNX)
