@@ -7,21 +7,18 @@ ApplicationWindow {
     width: 700
     height: 500
     title: "Audio Inference Runner"
-    color: "#1e1e1e" // Dark background like your screenshot
+    color: "#1e1e1e"
 
     signal startProgramClicked()
 
     // --- LOGIC ---
     function appendToLog(text) {
-        // System logs (like "Listening...") go here
         if (text.trim() !== "") {
              logDisplay.text += "> " + text + "\n"
         }
     }
 
     function updateTranscript(text) {
-        // The spoken text is appended CLEANLY to the main terminal area
-        // We add a space to separate words
         transcriptDisplay.text += text + " "
     }
 
@@ -50,7 +47,7 @@ ApplicationWindow {
         Rectangle {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            color: "#000000" // Black terminal background
+            color: "#000000"
             border.color: "#333333"
             radius: 8
 
@@ -67,7 +64,7 @@ ApplicationWindow {
                     Text {
                         id: logDisplay
                         Layout.fillWidth: true
-                        color: "#666666" // Dimmed grey for system messages
+                        color: "#666666"
                         font.family: "Courier New"
                         font.pixelSize: 14
                         wrapMode: Text.WordWrap
@@ -78,18 +75,18 @@ ApplicationWindow {
                     Text {
                         id: transcriptDisplay
                         Layout.fillWidth: true
-                        color: "#00FF00" // Hacker Green
+                        color: "#00FF00"
                         font.family: "Courier New"
                         font.pixelSize: 16
                         font.bold: true
                         wrapMode: Text.WordWrap
-                        text: "" // Starts empty
+                        text: ""
                     }
                 }
             }
         }
 
-        // Start Button (Styled to match dark theme)
+        // Start Button
         Button {
             id: startBtn
             text: "Start Listening"

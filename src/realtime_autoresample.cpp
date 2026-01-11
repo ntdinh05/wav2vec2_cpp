@@ -19,9 +19,7 @@ using json = nlohmann::json;
 
 // --- CONFIGURATION ---
 const int SAMPLE_RATE = 16000;
-// We wait for 3 seconds of audio, process it, print it, then clear it.
-// This prevents "Hello Hello Hello" loops and ensures the model has enough context.
-const int WINDOW_DURATION_SEC = 3; 
+const int WINDOW_DURATION_SEC = 3; // Wait duration before processing
 const size_t WINDOW_SIZE = SAMPLE_RATE * WINDOW_DURATION_SEC;
 
 // --- GLOBAL VARIABLES ---
@@ -136,7 +134,6 @@ std::string RunInference(std::vector<float>& samples, Ort::Session& session, std
 
 // --- MAIN ---
 int main() {
-    // FORCE FLUSH to ensure text appears
     std::cout.setf(std::ios::unitbuf);
 
     std::string vocab_path = "../vocab/vocab.json";
@@ -180,9 +177,7 @@ int main() {
         {
             std::lock_guard<std::mutex> lock(g_bufferMutex);
             if (g_audioBuffer.size() >= WINDOW_SIZE) {
-                // Copy the buffer
                 current_window = g_audioBuffer;
-                // CLEAR the buffer completely (No overlapping, prevents duplication)
                 g_audioBuffer.clear();
                 should_process = true;
             }
@@ -192,8 +187,6 @@ int main() {
             std::string result = RunInference(current_window, session, vocab);
             
             if (!result.empty()) {
-                // "TR:" is our secret tag for "Transcript"
-                // std::endl forces the output to be sent to Python IMMEDIATELY
                 std::cout << "TR:" << result << std::endl;
             }
         }
