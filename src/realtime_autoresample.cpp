@@ -19,8 +19,9 @@ using json = nlohmann::json;
 
 // --- CONFIGURATION ---
 const int SAMPLE_RATE = 16000;
-const int WINDOW_DURATION_SEC = 3; // Wait duration before processing
-const size_t WINDOW_SIZE = SAMPLE_RATE * WINDOW_DURATION_SEC;
+// const float SPEECH_THRESHOLD = 0.02f;           // Amplitude threshold to trigger recording (Noise Gate)
+// const float SILENCE_DURATION_THRESHOLD = 0.8f;  // Seconds of silence to mark 'End of Sentence'
+// const float MAX_SPEECH_DURATION = 15.0f;        // Force inference if speech is too long (safety limit)
 
 // --- GLOBAL VARIABLES ---
 std::vector<float> g_audioBuffer; 
@@ -74,7 +75,7 @@ std::string RunInference(std::vector<float>& samples, Ort::Session& session, std
         sq_sum += diff * diff;
     }
     double stdev = std::sqrt(sq_sum / samples.size());
-    double epsilon = 1e-5;
+    double epsilon = 1e-5;     // Try without doing the normalization
 
     std::vector<float> norm_samples = samples;
     for (auto& x : norm_samples) {
@@ -105,9 +106,13 @@ std::string RunInference(std::vector<float>& samples, Ort::Session& session, std
 
     std::string text = "";
     int previous_index = -1; 
+    
+    // SentencePiece underscore (U+2581) byte sequence
+    const std::string SP_SPACE = "\xe2\x96\x81"; 
 
     // 3. Decode Tokens
     for (int t = 0; t < seq_len; t++) {
+        // Find Argmax
         float* logits = floatarr + (t * vocab_size);
         int max_index = 0; 
         float max_val = logits[0];
@@ -115,19 +120,32 @@ std::string RunInference(std::vector<float>& samples, Ort::Session& session, std
             if (logits[v] > max_val) { max_val = logits[v]; max_index = v; }
         }
 
-        // Greedy Decode with specific cleanup
-        if (max_index != previous_index) {
-            std::string token = vocab[max_index];
-            // Filter out common special tokens aggressively
-            bool is_special = (token == "[PAD]" || token == "<pad>" || token == "<s>" || token == "</s>" || token == "<unk>" || token == "|");
-            
-            if (!is_special) {
-                text += token;
-            } else if (token == "|") {
-                text += " ";
-            }
-        }
+        // Greedy CTC Decode: Skip repeated tokens immediately
+        if (max_index == previous_index) continue;
         previous_index = max_index;
+
+        std::string token = vocab[max_index];
+
+        // 1. Skip Special/Ignored Tokens
+        if (token == "[PAD]" || token == "<pad>" || token == "<s>" || token == "</s>" || token == "<unk>") {
+            continue;
+        }
+
+        // 2. Handle Wav2Vec/Whisper explicit space tokens
+        if (token == "|" || token == "<|space|>") {
+            text += " ";
+            continue;
+        }
+
+        // 3. Handle SentencePiece Underscores (e.g. " word" -> " word" or "_" -> " ")
+        // This loop safely replaces all instances of the special underscore with a real space
+        size_t pos = 0;
+        while ((pos = token.find(SP_SPACE, pos)) != std::string::npos) {
+            token.replace(pos, SP_SPACE.length(), " ");
+            pos += 1; 
+        }
+
+        text += token;
     }
     return text;
 }
@@ -148,7 +166,7 @@ int main() {
     ma_device_config config = ma_device_config_init(ma_device_type_capture);
     config.capture.format = ma_format_f32; 
     config.capture.channels = 1;           
-    config.sampleRate = SAMPLE_RATE;       
+    config.sampleRate = SAMPLE_RATE;
     config.dataCallback = data_callback;   
     config.capture.shareMode = ma_share_mode_shared; 
 
@@ -164,34 +182,85 @@ int main() {
     // Check for "Dead Microphone" (Permissions Issue)
     std::this_thread::sleep_for(std::chrono::seconds(1));
     if (g_maxAmplitude.load() == 0.0f) {
-        std::cout << "\n[!] WARNING: No audio signal detected." << std::endl;
-        std::cout << "[!] CHECK MACOS PRIVACY SETTINGS -> MICROPHONE." << std::endl;
+        std::cout << "\nNo audio signal detected." << std::endl;
     }
+
+    // --- VAD STATE VARIABLES ---
+    std::vector<float> accumulated_audio;
+    
+    // Track previous output to detect and remove duplicates
+    std::string last_transcription = ""; 
 
     while (g_isRunning) {
+        // Fetch audio chunk (approx 100ms usually)
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
-        std::vector<float> current_window;
-        bool should_process = false;
-
+        std::vector<float> chunk;
         {
             std::lock_guard<std::mutex> lock(g_bufferMutex);
-            if (g_audioBuffer.size() >= WINDOW_SIZE) {
-                current_window = g_audioBuffer;
+            if (!g_audioBuffer.empty()) {
+                chunk = g_audioBuffer;
                 g_audioBuffer.clear();
-                should_process = true;
             }
         }
 
-        if (should_process) {
-            std::string result = RunInference(current_window, session, vocab);
+        if (chunk.empty()) continue;
+
+        float chunk_duration = (float)chunk.size() / SAMPLE_RATE;
+        // std::cout<<"Chunk Duration: " << std::fixed << std::setprecision(3) << chunk_duration << "s\r";
+        accumulated_audio.insert(accumulated_audio.end(), chunk.begin(), chunk.end());
+
+        float current_total_duration = (float)accumulated_audio.size() / SAMPLE_RATE;
+        if (current_total_duration >= 2.5f) {
+            std::string current_raw = RunInference(accumulated_audio, session, vocab);
+            std::string display_text = current_raw;
+
+            // --- DE-DUPLICATION CHECK ---
+            // Since we overlap audio, the tokens at the start of 'current_raw' 
+            // might match the tokens at the end of 'last_transcription'.
+            if (!last_transcription.empty() && !current_raw.empty()) {
+                size_t max_check = std::min(last_transcription.length(), current_raw.length());
+                size_t best_overlap = 0;
+
+                // Check suffixes of 'last' against prefixes of 'current'
+                // We limit the check range because the audio overlap is short (0.4s)
+                size_t limit_chars = std::min(max_check, (size_t)50); 
+                
+                for (size_t i = 1; i <= limit_chars; i++) {
+                    std::string suffix = last_transcription.substr(last_transcription.length() - i);
+                    std::string prefix = current_raw.substr(0, i);
+                    if (suffix == prefix) {
+                        best_overlap = i;
+                    }
+                }
+                
+                // If overlap found, strip it from the start of the current text
+                if (best_overlap > 0) {
+                    display_text = current_raw.substr(best_overlap);
+                }
+            }
+
+            if (!display_text.empty()) {
+                std::cout << "TR:" << display_text << std::endl;
+            }
             
-            if (!result.empty()) {
-                std::cout << "TR:" << result << std::endl;
+            // Save the raw full output for the NEXT comparison
+            last_transcription = current_raw;
+            
+            // --- OVERLAP LOGIC ---
+            // Keep the last 0.4 seconds of audio to preserve context for cut-off words
+            size_t keep_samples = (size_t)(0.4f * SAMPLE_RATE);
+            
+            if (accumulated_audio.size() > keep_samples) {
+                // Create a new buffer starting with the tail of the old one
+                std::vector<float> tail(accumulated_audio.end() - keep_samples, accumulated_audio.end());
+                accumulated_audio = tail;
+            } else {
+                accumulated_audio.clear();
+                last_transcription = ""; // Reset history if audio chain breaks
             }
         }
     }
-
     ma_device_uninit(&device);
     return 0;
 }
