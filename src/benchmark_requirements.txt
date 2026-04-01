@@ -1,0 +1,13 @@
+# Benchmark dependencies (in addition to scripts/requirements.txt)
+torch>=2.0.0
+transformers>=4.30.0
+soundfile>=0.12.0
+numpy>=1.24.0
+librosa>=0.10.0
+phonemizer>=3.2.0
+jiwer>=3.0.0
+allosaurus>=1.0.0
+# Optional (uncomment to enable):
+# allophant
+# espnet
+# espnet_model_zoo

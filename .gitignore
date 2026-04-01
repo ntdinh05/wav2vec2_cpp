@@ -1,3 +1,9 @@
 build/
 onnx_output/
 venv/
+test/
+onnx_models/
+__pycache__/
+*.pyc
+wandb/
+*.log

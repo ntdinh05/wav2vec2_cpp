@@ -1,0 +1,6 @@
+model,n_utterances,n_scored,n_errors,mean_per,median_per,mean_inference_time_s
+facebook-lv60-espeak,1138,1138,0,0.525,0.3333,0.0511
+facebook-xlsr53-espeak,1138,1138,0,0.5466,0.3571,0.0507
+vitouphy-timit,1138,1138,0,0.5832,0.3889,0.0535
+bookbot-ljspeech-gruut,1138,1138,0,0.6547,0.5714,0.0208
+allosaurus,1138,1138,0,0.7735,0.6667,0.2009

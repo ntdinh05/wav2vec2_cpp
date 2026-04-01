@@ -211,7 +211,7 @@ int main() {
         accumulated_audio.insert(accumulated_audio.end(), chunk.begin(), chunk.end());
 
         float current_total_duration = (float)accumulated_audio.size() / SAMPLE_RATE;
-        if (current_total_duration >= 2.5f) {
+        if (current_total_duration >= 0.5f) {
             std::string current_raw = RunInference(accumulated_audio, session, vocab);
             std::string display_text = current_raw;
 
