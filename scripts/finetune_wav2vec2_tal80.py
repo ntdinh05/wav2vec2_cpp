@@ -211,6 +211,18 @@ wandb.log({
     "dataset/total_hours": round(dur_df["duration_sec"].sum() / 3600, 2),
 })
 
+# Drop utterances longer than MAX_AUDIO_SEC to avoid CTC label/audio mismatch.
+# Audio gets truncated to MAX_AUDIO_SEC but labels stay full-length, causing
+# label_length > input_length which makes CTC loss return inf.
+logger.info("Filtering utterances longer than %ds...", MAX_AUDIO_SEC)
+keep_mask = []
+for wav_path in df["wav_path"]:
+    info = sf.info(wav_path)
+    keep_mask.append(info.duration <= MAX_AUDIO_SEC)
+n_before = len(df)
+df = df[keep_mask].reset_index(drop=True)
+logger.info("Dropped %d utterances > %ds. Remaining: %d", n_before - len(df), MAX_AUDIO_SEC, len(df))
+
 # ──────────────────────────────────────────────────────────────────────
 # 2. Convert text prompts to IPA phonemes
 # ──────────────────────────────────────────────────────────────────────
@@ -398,9 +410,6 @@ class DataCollatorCTCWithPadding:
             audio, sr = sf.read(f["wav_path"])
             if sr != TARGET_SR:
                 audio = librosa.resample(audio, orig_sr=sr, target_sr=TARGET_SR)
-            max_samples = int(MAX_AUDIO_SEC * TARGET_SR)
-            if len(audio) > max_samples:
-                audio = audio[:max_samples]
             inputs = self.processor(audio, sampling_rate=TARGET_SR, return_tensors=None)
             input_features.append({"input_values": inputs.input_values[0]})
 
@@ -497,9 +506,6 @@ class WandbPredictionCallback(TrainerCallback):
             audio, sr = sf.read(sample["wav_path"])
             if sr != TARGET_SR:
                 audio = librosa.resample(audio, orig_sr=sr, target_sr=TARGET_SR)
-            max_samples = int(MAX_AUDIO_SEC * TARGET_SR)
-            if len(audio) > max_samples:
-                audio = audio[:max_samples]
 
             inputs = self.processor(
                 audio, sampling_rate=TARGET_SR, return_tensors="pt"
@@ -554,7 +560,7 @@ training_args = TrainingArguments(
     max_grad_norm=1.0,  # clip large gradients to prevent inf/NaN
     warmup_steps=300,
     gradient_checkpointing=True,
-    fp16=True,
+    bf16=True,  # bf16 instead of fp16: CTC loss (~200) overflows fp16 max (65504) during backprop
     eval_strategy="epoch",
     save_strategy="epoch",
     logging_steps=50,

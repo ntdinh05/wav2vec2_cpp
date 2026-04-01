@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Benchmark original vs fine-tuned wav2vec2-lv-60-espeak-cv-ft on UXTD child speech.
+"""Benchmark original vs fine-tuned wav2vec2 models on UXTD child speech.
 
 Compares phoneme error rate (PER) and inference time for:
   - Original: facebook/wav2vec2-lv-60-espeak-cv-ft (ONNX)
-  - Fine-tuned: UXTD-finetuned checkpoint (ONNX)
+  - UXTD fine-tuned: fine-tuned on UXTD child speech (ONNX)
+  - TaL80 fine-tuned: fine-tuned on TaL80 adult speech from UXTD checkpoint (ONNX)
 
 Outputs per-utterance and summary CSVs.
 """
@@ -23,7 +24,8 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
 
 ORIGINAL_ONNX = os.path.join(PROJECT_DIR, "onnx_models", "wav2vec2_original.onnx")
-FINETUNED_ONNX = os.path.join(PROJECT_DIR, "onnx_models", "wav2vec2_uxtd.onnx")
+UXTD_ONNX = os.path.join(PROJECT_DIR, "onnx_models", "wav2vec2_uxtd.onnx")
+TAL80_ONNX = os.path.join(PROJECT_DIR, "onnx_models", "wav2vec2_tal80.onnx")
 CSV_PATH = os.path.join(PROJECT_DIR, "tests", "utterances_by_length.csv")
 SPEAKERS_PATH = "/home/ultraspeech-dev/ultrasuite/core-uxtd/doc/speakers"
 OUTPUT_DIR = os.path.join(PROJECT_DIR, "output")
@@ -104,8 +106,6 @@ def compute_per(ref, hyp):
 
 
 # ── Run benchmark ────────────────────────────────────────────────────
-models = {}
-
 # Use CUDA if available, fall back to CPU
 available_providers = ort.get_available_providers()
 if "CUDAExecutionProvider" in available_providers:
@@ -115,20 +115,23 @@ else:
     providers = ["CPUExecutionProvider"]
     print("WARNING: CUDAExecutionProvider not available, falling back to CPU")
 
-for label, onnx_path in [("original", ORIGINAL_ONNX), ("finetuned", FINETUNED_ONNX)]:
-    if not os.path.exists(onnx_path):
-        print(f"WARNING: {onnx_path} not found, skipping {label}")
-        continue
-    print(f"\nLoading ONNX session: {label} ({os.path.basename(onnx_path)})...")
-    models[label] = ort.InferenceSession(onnx_path, providers=providers)
+model_configs = [("original", ORIGINAL_ONNX), ("uxtd_finetuned", UXTD_ONNX), ("tal80_finetuned", TAL80_ONNX)]
 
 results = []
 
-for idx, row in df.iterrows():
-    if idx % 100 == 0:
-        print(f"  Processing utterance {idx + 1}/{len(df)}...")
+# Load one model at a time to avoid GPU OOM from holding all 3 (~1.2GB each)
+for model_name, onnx_path in model_configs:
+    if not os.path.exists(onnx_path):
+        print(f"WARNING: {onnx_path} not found, skipping {model_name}")
+        continue
 
-    for model_name, session in models.items():
+    print(f"\nLoading ONNX session: {model_name} ({os.path.basename(onnx_path)})...")
+    session = ort.InferenceSession(onnx_path, providers=providers)
+
+    for idx, row in df.iterrows():
+        if idx % 100 == 0:
+            print(f"  [{model_name}] Processing utterance {idx + 1}/{len(df)}...")
+
         try:
             hyp, inf_time = run_inference(session, row["wav_path"])
             per = compute_per(row["ref_phonemes"], hyp)
@@ -151,6 +154,9 @@ for idx, row in df.iterrows():
             "error": error,
         })
 
+    # Release GPU memory before loading next model
+    del session
+
 results_df = pd.DataFrame(results)
 
 # ── Per-utterance CSV ────────────────────────────────────────────────
@@ -160,7 +166,7 @@ print(f"\nPer-utterance results: {per_utt_path}")
 
 # ── Summary CSV ──────────────────────────────────────────────────────
 summary_rows = []
-for model_name in models:
+for model_name in results_df["model"].unique():
     for split in ["train", "dev", "test", "all"]:
         if split == "all":
             subset = results_df[results_df["model"] == model_name]
@@ -187,7 +193,7 @@ print(f"Summary results: {summary_path}")
 
 # ── Print summary to console ─────────────────────────────────────────
 print("\n" + "=" * 70)
-print("BENCHMARK SUMMARY: Original vs Fine-tuned")
+print("BENCHMARK SUMMARY: Original vs UXTD vs TaL80")
 print("=" * 70)
 print(summary_df.to_string(index=False))
 print("=" * 70)
