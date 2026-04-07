@@ -7,3 +7,5 @@ __pycache__/
 *.pyc
 wandb/
 *.log
+node_modules/
+scripts/wav2vec2-combined-finetuned/
