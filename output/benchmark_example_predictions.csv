@@ -1,0 +1,7 @@
+WAV File,GT Phonemes (IPA),Model (finetuned on),Prediction (IPA)
+029A.wav,θ æ ŋ k  j uː  s ɪ s ɚ z  h ɛ l ɪ k ɑː p t ɚ  b ɹ ɪ dʒ,Wav2Vec2 LV60,θ æ ŋ k j uː s ɛ s ɚ z h ɪ l ɐ k ʌ p t ɚ b ɹ ɪ dʒ
+114_aud.wav,s oʊ  aɪ  d ɪ d,Wav2Vec2 LV60,s oʊ aɪ d ɪ d
+029A.wav,θ æ ŋ k  j uː  s ɪ s ɚ z  h ɛ l ɪ k ɑː p t ɚ  b ɹ ɪ dʒ,Wav2Vec2 LV60 (UXTD),θ æ ŋ k <unk> j uː <unk> s ɪ s ɚ z <unk> h ɛ l ɪ k ɑː p t ɚ <unk> b ɹ ɪ dʒ
+114_aud.wav,s oʊ  aɪ  d ɪ d,Wav2Vec2 LV60 (UXTD),s oʊ <unk> aɪ <unk> d ɪ d
+029A.wav,θ æ ŋ k  j uː  s ɪ s ɚ z  h ɛ l ɪ k ɑː p t ɚ  b ɹ ɪ dʒ,Wav2Vec2 LV60 (TaL80),θ æ ŋ k <unk> j uː <unk> s ɪ s ɚ z <unk> h ɛ l ɪ k ɑː p t ɚ <unk> b ɹ ɪ dʒ
+114_aud.wav,s oʊ  aɪ  d ɪ d,Wav2Vec2 LV60 (TaL80),s oʊ <unk> aɪ <unk> d ɪ d
