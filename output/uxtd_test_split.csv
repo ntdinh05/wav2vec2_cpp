@@ -1,0 +1,253 @@
+rank,utterance_length,word_count,utterance,speaker,filename,filepath
+9,36,5,thank you scissors helicopter bridge,07F,029A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/029A.txt
+10,36,5,thank you scissors helicopter bridge,07F,032A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/032A.txt
+11,36,5,thank you scissors helicopter bridge,08M,031A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/031A.txt
+12,36,5,thank you scissors helicopter bridge,08M,034A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/034A.txt
+19,36,5,thank you scissors helicopter bridge,12M,029A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/029A.txt
+20,36,5,thank you scissors helicopter bridge,12M,032A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/032A.txt
+21,36,5,thank you scissors helicopter bridge,13F,028A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/028A.txt
+22,36,5,thank you scissors helicopter bridge,13F,031A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/031A.txt
+45,36,5,thank you scissors helicopter bridge,26F,029A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/029A.txt
+46,36,5,thank you scissors helicopter bridge,26F,032A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/032A.txt
+53,36,5,thank you scissors helicopter bridge,30F,031A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/031A.txt
+54,36,5,thank you scissors helicopter bridge,30F,034A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/034A.txt
+69,36,5,thank you scissors helicopter bridge,38M,002A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/38M/002A.txt
+70,36,5,thank you scissors helicopter bridge,38M,009A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/38M/009A.txt
+83,36,5,thank you scissors helicopter bridge,45M,002A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/45M/002A.txt
+84,36,5,thank you scissors helicopter bridge,45M,009A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/45M/009A.txt
+87,36,5,thank you scissors helicopter bridge,47M,002A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/47M/002A.txt
+88,36,5,thank you scissors helicopter bridge,47M,009A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/47M/009A.txt
+97,36,5,thank you scissors helicopter bridge,52F,002A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/52F/002A.txt
+98,36,5,thank you scissors helicopter bridge,52F,009A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/52F/009A.txt
+99,36,5,thank you scissors helicopter bridge,53F,002A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/53F/002A.txt
+100,36,5,thank you scissors helicopter bridge,53F,009A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/53F/009A.txt
+103,36,5,thank you scissors helicopter bridge,55M,002A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/55M/002A.txt
+104,36,5,thank you scissors helicopter bridge,55M,003A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/55M/003A.txt
+105,36,5,thank you scissors helicopter bridge,55M,009A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/55M/009A.txt
+118,34,5,crab biscuits thank you helicopter,07F,037A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/037A.txt
+119,34,5,crab biscuits thank you helicopter,08M,039A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/039A.txt
+123,34,5,crab biscuits thank you helicopter,12M,037A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/037A.txt
+124,34,5,crab biscuits thank you helicopter,13F,036A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/036A.txt
+134,34,5,crab biscuits thank you helicopter,26F,037A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/037A.txt
+136,34,5,crab biscuits thank you helicopter,30F,039A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/039A.txt
+144,33,4,scissors fishing lighthouse zebra,07F,044A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/044A.txt
+145,33,4,scissors fishing lighthouse zebra,08M,044A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/044A.txt
+149,33,4,scissors fishing lighthouse zebra,12M,044A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/044A.txt
+150,33,4,scissors fishing lighthouse zebra,13F,043A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/043A.txt
+160,33,4,scissors fishing lighthouse zebra,26F,044A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/044A.txt
+162,33,4,scissors fishing lighthouse zebra,30F,046A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/046A.txt
+169,30,4,tomato monkey toothbrush apple,07F,042A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/042A.txt
+173,30,4,tomato monkey toothbrush apple,12M,042A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/042A.txt
+174,30,4,tomato monkey toothbrush apple,13F,041A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/041A.txt
+184,30,4,tomato monkey toothbrush apple,26F,042A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/042A.txt
+186,30,4,tomato monkey toothbrush apple,30F,044A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/044A.txt
+193,29,4,elephant umbrella train swing,07F,034A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/034A.txt
+194,29,4,elephant umbrella train swing,08M,036A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/036A.txt
+198,29,4,elephant umbrella train swing,12M,034A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/034A.txt
+199,29,4,elephant umbrella train swing,13F,033A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/033A.txt
+209,29,4,elephant umbrella train swing,26F,034A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/034A.txt
+211,29,4,elephant umbrella train swing,30F,036A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/036A.txt
+218,28,4,yellow strawberry spider web,07F,040A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/040A.txt
+219,28,4,yellow strawberry spider web,08M,041A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/041A.txt
+223,28,4,yellow strawberry spider web,12M,040A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/040A.txt
+224,28,4,yellow strawberry spider web,13F,039A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/039A.txt
+234,28,4,yellow strawberry spider web,26F,040A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/040A.txt
+236,28,4,yellow strawberry spider web,30F,042A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/042A.txt
+243,28,4,kitchen sausage tiger rabbit,07F,045A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/045A.txt
+244,28,4,kitchen sausage tiger rabbit,08M,045A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/045A.txt
+248,28,4,kitchen sausage tiger rabbit,12M,045A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/045A.txt
+249,28,4,kitchen sausage tiger rabbit,13F,044A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/044A.txt
+259,28,4,kitchen sausage tiger rabbit,26F,045A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/045A.txt
+261,28,4,kitchen sausage tiger rabbit,30F,047A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/047A.txt
+270,27,4,watch fishing gloves spider,07F,028A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/028A.txt
+271,27,4,watch fishing gloves spider,07F,031A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/031A.txt
+272,27,4,watch fishing gloves spider,08M,030A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/030A.txt
+273,27,4,watch fishing gloves spider,08M,033A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/033A.txt
+280,27,4,watch fishing gloves spider,12M,028A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/028A.txt
+281,27,4,watch fishing gloves spider,12M,031A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/031A.txt
+282,27,4,watch fishing gloves spider,13F,027A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/027A.txt
+283,27,4,watch fishing gloves spider,13F,030A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/030A.txt
+306,27,4,watch fishing gloves spider,26F,028A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/028A.txt
+307,27,4,watch fishing gloves spider,26F,031A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/031A.txt
+314,27,4,watch fishing gloves spider,30F,030A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/030A.txt
+315,27,4,watch fishing gloves spider,30F,033A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/033A.txt
+330,27,4,watch fishing gloves spider,38M,001A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/38M/001A.txt
+331,27,4,watch fishing gloves spider,38M,008A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/38M/008A.txt
+344,27,4,watch fishing gloves spider,45M,001A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/45M/001A.txt
+345,27,4,watch fishing gloves spider,45M,008A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/45M/008A.txt
+348,27,4,watch fishing gloves spider,47M,001A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/47M/001A.txt
+349,27,4,watch fishing gloves spider,47M,008A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/47M/008A.txt
+358,27,4,watch fishing gloves spider,52F,001A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/52F/001A.txt
+359,27,4,watch fishing gloves spider,52F,008A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/52F/008A.txt
+360,27,4,watch fishing gloves spider,53F,001A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/53F/001A.txt
+361,27,4,watch fishing gloves spider,53F,008A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/53F/008A.txt
+364,27,4,watch fishing gloves spider,55M,001A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/55M/001A.txt
+365,27,4,watch fishing gloves spider,55M,008A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/55M/008A.txt
+379,25,4,teeth watch orange school,07F,036A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/036A.txt
+380,25,4,teeth watch orange school,08M,038A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/038A.txt
+384,25,4,teeth watch orange school,12M,036A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/036A.txt
+385,25,4,teeth watch orange school,13F,035A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/035A.txt
+395,25,4,teeth watch orange school,26F,036A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/036A.txt
+397,25,4,teeth watch orange school,30F,038A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/038A.txt
+403,25,6,pack tap peak tea oak toe,07F,016A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/016A.txt
+404,25,6,pack tap peak tea oak toe,08M,016A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/016A.txt
+408,25,6,pack tap peak tea oak toe,12M,016A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/016A.txt
+409,25,6,pack tap peak tea oak toe,13F,015A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/015A.txt
+419,25,6,pack tap peak tea oak toe,26F,016A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/016A.txt
+423,25,6,pack tap peak tea oak toe,30F,018A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/018A.txt
+430,24,4,sheep snake pram feather,07F,041A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/041A.txt
+431,24,4,sheep snake pram feather,08M,042A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/042A.txt
+435,24,4,sheep snake pram feather,12M,041A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/041A.txt
+436,24,4,sheep snake pram feather,13F,040A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/040A.txt
+446,24,4,sheep snake pram feather,26F,041A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/041A.txt
+448,24,4,sheep snake pram feather,30F,043A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/043A.txt
+456,23,4,gloves queen three frog,07F,039A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/039A.txt
+457,23,4,gloves queen three frog,08M,040A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/040A.txt
+461,23,4,gloves queen three frog,12M,039A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/039A.txt
+462,23,4,gloves queen three frog,13F,038A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/038A.txt
+472,23,4,gloves queen three frog,26F,039A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/039A.txt
+474,23,4,gloves queen three frog,30F,041A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/041A.txt
+481,23,4,bread duck giraffe five,07F,035A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/035A.txt
+482,23,4,bread duck giraffe five,08M,037A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/037A.txt
+486,23,4,bread duck giraffe five,12M,035A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/035A.txt
+487,23,4,bread duck giraffe five,13F,034A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/034A.txt
+497,23,4,bread duck giraffe five,26F,035A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/035A.txt
+499,23,4,bread duck giraffe five,30F,037A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/037A.txt
+506,21,4,egg splash square pig,07F,038A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/038A.txt
+510,21,4,egg splash square pig,12M,038A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/038A.txt
+511,21,4,egg splash square pig,13F,037A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/037A.txt
+521,21,4,egg splash square pig,26F,038A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/038A.txt
+523,21,4,egg splash square pig,30F,040A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/040A.txt
+535,18,4,knife van ear this,07F,043A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/043A.txt
+536,18,4,knife van ear this,08M,043A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/043A.txt
+540,18,4,knife van ear this,12M,043A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/043A.txt
+541,18,4,knife van ear this,13F,042A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/042A.txt
+551,18,4,knife van ear this,26F,043A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/043A.txt
+553,18,4,knife van ear this,30F,045A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/045A.txt
+562,17,2,umbrella elephant,07F,030A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/030A.txt
+563,17,2,umbrella elephant,07F,033A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/033A.txt
+564,17,2,umbrella elephant,08M,032A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/032A.txt
+565,17,2,umbrella elephant,08M,035A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/035A.txt
+572,17,2,umbrella elephant,12M,030A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/030A.txt
+573,17,2,umbrella elephant,12M,033A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/033A.txt
+574,17,2,umbrella elephant,13F,029A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/029A.txt
+575,17,2,umbrella elephant,13F,032A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/032A.txt
+598,17,2,umbrella elephant,26F,030A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/030A.txt
+599,17,2,umbrella elephant,26F,033A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/033A.txt
+606,17,2,umbrella elephant,30F,032A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/032A.txt
+607,17,2,umbrella elephant,30F,035A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/035A.txt
+622,17,2,umbrella elephant,38M,003A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/38M/003A.txt
+623,17,2,umbrella elephant,38M,010A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/38M/010A.txt
+636,17,2,umbrella elephant,45M,003A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/45M/003A.txt
+637,17,2,umbrella elephant,45M,010A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/45M/010A.txt
+640,17,2,umbrella elephant,47M,003A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/47M/003A.txt
+641,17,2,umbrella elephant,47M,010A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/47M/010A.txt
+650,17,2,umbrella elephant,52F,003A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/52F/003A.txt
+651,17,2,umbrella elephant,52F,010A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/52F/010A.txt
+652,17,2,umbrella elephant,53F,003A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/53F/003A.txt
+653,17,2,umbrella elephant,53F,010A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/53F/010A.txt
+656,17,2,umbrella elephant,55M,004A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/55M/004A.txt
+657,17,2,umbrella elephant,55M,010A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/55M/010A.txt
+669,17,4,pup pop pope poop,07F,018A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/018A.txt
+670,17,4,pup pop pope poop,08M,018A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/018A.txt
+671,17,4,pup pop pope poop,08M,019A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/019A.txt
+675,17,4,pup pop pope poop,12M,018A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/018A.txt
+676,17,4,pup pop pope poop,13F,017A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/017A.txt
+688,17,4,pup pop pope poop,26F,018A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/018A.txt
+692,17,4,pup pop pope poop,30F,020A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/020A.txt
+699,17,4,peep babe pep pap,07F,017B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/017B.txt
+700,17,4,peep babe pep pap,08M,017B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/017B.txt
+704,17,4,peep babe pep pap,12M,017B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/017B.txt
+705,17,4,peep babe pep pap,13F,016B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/016B.txt
+718,17,4,peep babe pep pap,26F,017B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/017B.txt
+722,17,4,peep babe pep pap,30F,019B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/019B.txt
+737,16,4,sam sham tap cap,38M,005A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/38M/005A.txt
+738,16,4,sam sham tap cap,38M,012A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/38M/012A.txt
+751,16,4,sam sham tap cap,45M,005A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/45M/005A.txt
+752,16,4,sam sham tap cap,45M,012A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/45M/012A.txt
+755,16,4,sam sham tap cap,47M,005A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/47M/005A.txt
+756,16,4,sam sham tap cap,47M,012A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/47M/012A.txt
+765,16,4,sam sham tap cap,52F,005A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/52F/005A.txt
+766,16,4,sam sham tap cap,52F,012A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/52F/012A.txt
+767,16,4,sam sham tap cap,53F,005A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/53F/005A.txt
+768,16,4,sam sham tap cap,53F,012A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/53F/012A.txt
+771,16,4,sam sham tap cap,55M,005A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/55M/005A.txt
+772,16,4,sam sham tap cap,55M,012A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/55M/012A.txt
+791,16,4,rap chap gap bap,38M,006A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/38M/006A.txt
+792,16,4,rap chap gap bap,38M,013A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/38M/013A.txt
+805,16,4,rap chap gap bap,45M,006A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/45M/006A.txt
+806,16,4,rap chap gap bap,45M,013A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/45M/013A.txt
+809,16,4,rap chap gap bap,47M,006A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/47M/006A.txt
+810,16,4,rap chap gap bap,47M,013A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/47M/013A.txt
+819,16,4,rap chap gap bap,52F,006A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/52F/006A.txt
+820,16,4,rap chap gap bap,52F,013A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/52F/013A.txt
+821,16,4,rap chap gap bap,53F,006A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/53F/006A.txt
+822,16,4,rap chap gap bap,53F,013A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/53F/013A.txt
+825,16,4,rap chap gap bap,55M,006A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/55M/006A.txt
+826,16,4,rap chap gap bap,55M,013A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/55M/013A.txt
+847,16,4,home he who huge,38M,004A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/38M/004A.txt
+848,16,4,home he who huge,38M,011A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/38M/011A.txt
+861,16,4,home he who huge,45M,004A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/45M/004A.txt
+862,16,4,home he who huge,45M,011A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/45M/011A.txt
+865,16,4,home he who huge,47M,004A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/47M/004A.txt
+866,16,4,home he who huge,47M,011A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/47M/011A.txt
+875,16,4,home he who huge,52F,004A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/52F/004A.txt
+876,16,4,home he who huge,52F,011A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/52F/011A.txt
+877,16,4,home he who huge,53F,004A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/53F/004A.txt
+878,16,4,home he who huge,53F,011A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/53F/011A.txt
+881,16,4,home he who huge,55M,011A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/55M/011A.txt
+894,15,4,t ata eetee oto,07F,004B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/004B.txt
+895,15,4,t ata eetee oto,08M,004B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/004B.txt
+899,15,4,t ata eetee oto,12M,004B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/004B.txt
+900,15,4,t ata eetee oto,13F,004B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/004B.txt
+913,15,4,t ata eetee oto,26F,004B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/004B.txt
+917,15,4,t ata eetee oto,30F,004B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/004B.txt
+924,14,4,pip p pie pipe,07F,019B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/019B.txt
+925,14,4,pip p pie pipe,08M,020B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/020B.txt
+929,14,4,pip p pie pipe,12M,019B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/019B.txt
+930,14,4,pip p pie pipe,13F,018B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/018B.txt
+942,14,4,pip p pie pipe,26F,019B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/019B.txt
+946,14,4,pip p pie pipe,30F,021B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/021B.txt
+952,14,3,heart hurt hat,07F,022A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/022A.txt
+953,14,3,heart hurt hat,08M,023A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/023A.txt
+957,14,3,heart hurt hat,12M,022A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/022A.txt
+958,14,3,heart hurt hat,13F,021A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/021A.txt
+968,14,3,heart hurt hat,26F,022A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/022A.txt
+972,14,3,heart hurt hat,30F,024A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/024A.txt
+979,13,4,r are ear oar,07F,008B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/008B.txt
+980,13,4,r are ear oar,08M,008B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/008B.txt
+984,13,4,r are ear oar,12M,008B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/008B.txt
+985,13,4,r are ear oar,13F,008B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/008B.txt
+998,13,4,r are ear oar,26F,008B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/008B.txt
+1002,13,4,r are ear oar,30F,010B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/010B.txt
+1008,13,4,are aye oi ow,07F,025B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/025B.txt
+1009,13,4,are aye oi ow,08M,026B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/026B.txt
+1010,13,4,are aye oi ow,08M,027B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/027B.txt
+1014,13,4,are aye oi ow,12M,025B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/025B.txt
+1015,13,4,are aye oi ow,13F,024B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/024B.txt
+1025,13,4,are aye oi ow,26F,025B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/025B.txt
+1029,13,4,are aye oi ow,30F,027B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/027B.txt
+1037,12,3,boy pow part,07F,020A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/020A.txt
+1038,12,3,boy pow part,08M,021A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/021A.txt
+1042,12,3,boy pow part,12M,020A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/020A.txt
+1043,12,3,boy pow part,13F,019A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/019A.txt
+1054,12,3,boy pow part,26F,020A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/020A.txt
+1058,12,3,boy pow part,30F,022A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/022A.txt
+1065,11,4,l al eel ol,07F,010B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/010B.txt
+1066,11,4,l al eel ol,08M,010B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/010B.txt
+1070,11,4,l al eel ol,12M,010B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/010B.txt
+1071,11,4,l al eel ol,13F,009B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/009B.txt
+1083,11,4,l al eel ol,26F,010B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/010B.txt
+1087,11,4,l al eel ol,30F,012B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/012B.txt
+1093,11,4,ee ay eh ah,07F,023B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/023B.txt
+1094,11,4,ee ay eh ah,08M,024B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/024B.txt
+1098,11,4,ee ay eh ah,12M,023B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/023B.txt
+1099,11,4,ee ay eh ah,13F,022B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/022B.txt
+1109,11,4,ee ay eh ah,26F,023B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/023B.txt
+1113,11,4,ee ay eh ah,30F,025B,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/025B.txt
+1120,8,2,book boy,07F,046A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/07F/046A.txt
+1121,8,2,book boy,08M,046A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/08M/046A.txt
+1125,8,2,book boy,12M,046A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/12M/046A.txt
+1126,8,2,book boy,13F,045A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/13F/045A.txt
+1136,8,2,book boy,26F,046A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/26F/046A.txt
+1138,8,2,book boy,30F,048A,/home/ultraspeech-dev/ultrasuite/core-uxtd/core/30F/048A.txt
