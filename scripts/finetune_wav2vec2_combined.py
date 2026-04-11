@@ -45,7 +45,7 @@ TARGET_SR = 16000
 MAX_AUDIO_SEC = 10
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-OUTPUT_DIR = os.path.join(SCRIPT_DIR, "wav2vec2-combined-finetuned")
+OUTPUT_DIR = os.path.join(SCRIPT_DIR, "wav2vec2-combined-finetuned-top-layer")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 LOG_PATH = os.path.join(OUTPUT_DIR, "train_combined.log")
@@ -53,9 +53,9 @@ LOG_PATH = os.path.join(OUTPUT_DIR, "train_combined.log")
 # Training hyperparameters
 BATCH_SIZE = 2
 GRAD_ACCUM = 8
-MAX_EPOCHS = 30
-LEARNING_RATE = 3e-4
-WARMUP_STEPS = 500
+MAX_EPOCHS = 15
+LEARNING_RATE = 1e-3
+WARMUP_STEPS = 100
 NUM_WORKERS = 2
 
 # TaL80 speaker split ratios
@@ -252,7 +252,7 @@ dur_df = pd.DataFrame(durations)
 
 wandb.init(
     project="wav2vec2-combined-finetune",
-    name="combined-uxtd-tal80-lightning",
+    name="combined-uxtd-tal80-top-layer",
     config={
         "base_model": BASE_MODEL,
         "target_sr": TARGET_SR,
@@ -486,12 +486,11 @@ class Wav2Vec2FineTuner(pl.LightningModule):
             self.model.lm_head.bias.data[: old_bias.shape[0]] = old_bias
             logger.info("Resized lm_head from %d to %d", old_weight.shape[0], vocab_size)
 
-        # Freeze CNN feature encoder
-        self.model.freeze_feature_encoder()
-
-        # Enable gradient checkpointing to reduce VRAM usage
-        # (trades compute for memory — essential on <8GB GPUs with 315M params)
-        self.model.gradient_checkpointing_enable()
+        # Freeze ALL parameters, then unfreeze only lm_head (top linear layer)
+        for param in self.model.parameters():
+            param.requires_grad = False
+        for param in self.model.lm_head.parameters():
+            param.requires_grad = True
 
         # Log param counts
         total_params = sum(p.numel() for p in self.model.parameters())

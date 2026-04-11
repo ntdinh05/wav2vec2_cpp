@@ -33,16 +33,12 @@ SCRIPT_DIR  = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
 REPO_DIR    = os.path.dirname(PROJECT_DIR)
 
-ORIGINAL_ONNX = os.path.join(PROJECT_DIR, "onnx_models", "wav2vec2_original.onnx")
-UXTD_ONNX     = os.path.join(PROJECT_DIR, "onnx_models", "wav2vec2_uxtd.onnx")
-TAL80_ONNX    = os.path.join(PROJECT_DIR, "onnx_models", "wav2vec2_tal80.onnx")
-COMBINED_ONNX = os.path.join(PROJECT_DIR, "onnx_models", "wav2vec2_combined.onnx")
+ORIGINAL_ONNX     = os.path.join(PROJECT_DIR, "onnx_models", "wav2vec2_original.onnx")
+UXTD_TOP_ONNX     = os.path.join(PROJECT_DIR, "onnx_models", "wav2vec2_uxtd_top_layer.onnx")
+COMBINED_TOP_ONNX = os.path.join(PROJECT_DIR, "onnx_models", "wav2vec2_combined_top_layer.onnx")
 
-BASE_PROCESSOR_PATH  = "facebook/wav2vec2-lv-60-espeak-cv-ft"
-UXTD_PROCESSOR_PATH  = os.path.join(REPO_DIR, "wav2vec2-uxtd-finetuned")
-TAL80_PROCESSOR_PATH = os.path.join(REPO_DIR, "wav2vec2-tal80-finetuned")
-# Combined was trained with the base processor
-COMBINED_PROCESSOR_PATH = BASE_PROCESSOR_PATH
+BASE_PROCESSOR_PATH     = "facebook/wav2vec2-lv-60-espeak-cv-ft"
+UXTD_TOP_PROCESSOR_PATH = os.path.join(REPO_DIR, "wav2vec2-uxtd-finetuned-top-layer")
 
 UXTD_CSV       = os.path.join(PROJECT_DIR, "tests",  "utterances_by_length.csv")
 UXTD_SPEAKERS  = "/home/ultraspeech-dev/ultrasuite/core-uxtd/doc/speakers"
@@ -55,10 +51,9 @@ MAX_AUDIO_SEC = 10
 
 # ── Model configs: (display_name, onnx_path, processor_path) ──────────
 MODEL_CONFIGS = [
-    ("Base (LV60)",           ORIGINAL_ONNX, BASE_PROCESSOR_PATH),
-    ("UXTD fine-tuned",       UXTD_ONNX,     UXTD_PROCESSOR_PATH),
-    ("TaL80 fine-tuned",      TAL80_ONNX,    TAL80_PROCESSOR_PATH),
-    ("Combined (UXTD+TaL80)", COMBINED_ONNX, COMBINED_PROCESSOR_PATH),
+    ("Base (LV60)",          ORIGINAL_ONNX,    BASE_PROCESSOR_PATH),
+    ("UXTD top-layer",       UXTD_TOP_ONNX,    UXTD_TOP_PROCESSOR_PATH),
+    ("Combined top-layer",   COMBINED_TOP_ONNX, BASE_PROCESSOR_PATH),
 ]
 
 
