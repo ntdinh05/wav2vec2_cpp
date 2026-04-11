@@ -10,6 +10,7 @@ import numpy as np
 import pandas as pd
 import soundfile as sf
 import torch
+import wandb
 from datasets import Dataset, DatasetDict
 from evaluate import load as load_metric
 from transformers import (
@@ -19,13 +20,18 @@ from transformers import (
     Wav2Vec2Processor,
 )
 
+# Verify GPU is available
+if not torch.cuda.is_available():
+    raise RuntimeError("No GPU detected. Training requires a CUDA GPU.")
+print(f"Using GPU: {torch.cuda.get_device_name(0)}")
+
 # ──────────────────────────────────────────────────────────────────────
 # Config
 # ──────────────────────────────────────────────────────────────────────
 MODEL_NAME = "facebook/wav2vec2-lv-60-espeak-cv-ft"
-CSV_PATH = "/home/ultraspeech-dev/Documents/ultraspeech-dev/wav2vec2-standalone-testing/wave2vec2_cpp/tests/utterances_by_length.csv"
+CSV_PATH = "/home/ultraspeech-dev/Documents/ultraspeech-dev/wav2vec2-standalone-testing/wav2vec2_cpp/tests/utterances_by_length.csv"
 SPEAKERS_PATH = "/home/ultraspeech-dev/ultrasuite/core-uxtd/doc/speakers"
-OUTPUT_DIR = "./wav2vec2-uxtd-finetuned"
+OUTPUT_DIR = "/home/ultraspeech-dev/Documents/ultraspeech-dev/wav2vec2-standalone-testing/wav2vec2-uxtd-finetuned-top-layer"
 TARGET_SR = 16000
 SOURCE_SR = 22050
 MAX_AUDIO_SEC = 10  # truncate audio longer than this to fit in GPU memory
@@ -103,9 +109,19 @@ if model.config.vocab_size < actual_vocab_size:
     model.lm_head.bias.data[: old_bias.shape[0]] = old_bias
     print(f"Resized lm_head from {old_weight.shape[0]} to {actual_vocab_size}")
 
-# Freeze the feature encoder (CNN layers)
-model.freeze_feature_encoder()
-print("Feature encoder frozen.")
+# Freeze ALL parameters, then unfreeze only lm_head (top linear layer)
+for param in model.parameters():
+    param.requires_grad = False
+for param in model.lm_head.parameters():
+    param.requires_grad = True
+
+trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
+total = sum(p.numel() for p in model.parameters())
+print(
+    f"All layers frozen except lm_head. Trainable: {trainable:,} / {total:,} ({100 * trainable / total:.2f}%)"
+)
+
+wandb.init(project="wav2vec2-uxtd-top-layer-finetuning", name="uxtd-lm-head-only")
 
 # ──────────────────────────────────────────────────────────────────────
 # 4. Build HuggingFace datasets
@@ -252,14 +268,16 @@ def compute_metrics(pred):
 # ──────────────────────────────────────────────────────────────────────
 training_args = TrainingArguments(
     output_dir=OUTPUT_DIR,
+    run_name="uxtd-lm-head-only",
     per_device_train_batch_size=2,
     per_device_eval_batch_size=1,
     gradient_accumulation_steps=8,
-    num_train_epochs=30,
-    learning_rate=3e-4,
-    warmup_steps=500,
-    gradient_checkpointing=True,
-    fp16=True,
+    num_train_epochs=15,
+    learning_rate=1e-3,
+    warmup_steps=100,
+    gradient_checkpointing=False,
+    fp16=False,
+    bf16=True,
     eval_strategy="epoch",
     save_strategy="epoch",
     logging_steps=25,
@@ -268,7 +286,7 @@ training_args = TrainingArguments(
     greater_is_better=False,
     save_total_limit=3,
     dataloader_num_workers=4,
-    report_to="none",
+    report_to="wandb",
     remove_unused_columns=False,
 )
 

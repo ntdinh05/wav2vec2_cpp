@@ -23,9 +23,8 @@ from jiwer import wer
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
 
-ORIGINAL_ONNX = os.path.join(PROJECT_DIR, "onnx_models", "wav2vec2_original.onnx")
-UXTD_ONNX = os.path.join(PROJECT_DIR, "onnx_models", "wav2vec2_uxtd.onnx")
-TAL80_ONNX = os.path.join(PROJECT_DIR, "onnx_models", "wav2vec2_tal80.onnx")
+ORIGINAL_ONNX        = os.path.join(PROJECT_DIR, "onnx_models", "wav2vec2_original.onnx")
+UXTD_TOP_LAYER_ONNX  = os.path.join(PROJECT_DIR, "onnx_models", "wav2vec2_uxtd_top_layer.onnx")
 CSV_PATH = os.path.join(PROJECT_DIR, "tests", "utterances_by_length.csv")
 SPEAKERS_PATH = "/home/ultraspeech-dev/ultrasuite/core-uxtd/doc/speakers"
 OUTPUT_DIR = os.path.join(PROJECT_DIR, "output")
@@ -115,7 +114,10 @@ else:
     providers = ["CPUExecutionProvider"]
     print("WARNING: CUDAExecutionProvider not available, falling back to CPU")
 
-model_configs = [("original", ORIGINAL_ONNX), ("uxtd_finetuned", UXTD_ONNX), ("tal80_finetuned", TAL80_ONNX)]
+model_configs = [
+    ("original",       ORIGINAL_ONNX),
+    ("uxtd_top_layer", UXTD_TOP_LAYER_ONNX),
+]
 
 results = []
 
@@ -193,7 +195,7 @@ print(f"Summary results: {summary_path}")
 
 # ── Print summary to console ─────────────────────────────────────────
 print("\n" + "=" * 70)
-print("BENCHMARK SUMMARY: Original vs UXTD vs TaL80")
+print("BENCHMARK SUMMARY: Original vs UXTD Top-Layer Fine-Tuned")
 print("=" * 70)
 print(summary_df.to_string(index=False))
 print("=" * 70)
